@@ -1,0 +1,35 @@
+■for文について
+ex)
+for 変数 in オブジェクト do←(doは省略可)
+    繰り返す処理
+end
+
+オブジェクトは何でも指定出来るわけではなく基本的に配列かハッシュ。
+
+・配列オブジェクトをforでループさせる時
+ex)
+strs = ["a","b","c"]
+for str in strs
+    puts str
+end
+結果：a,b,c
+＊変数はfor文からでも呼び出せる。
+
+・ハッシュをforでループさせる時
+ex)
+fruits = {:apple => "アップル",:orange => "オレンジ", :graep => "グレープ" }
+
+for key,value in fruits
+  puts "キー：#{key}" あたい：#{value}
+end
+
+結果：
+キー：apple あたい：アップル
+キー：orange あたい：オレンジ
+キー：guape あたい：グレープ
+
+・変数を一つづつカウントアップして使いたいようなときは範囲オブジェクトを使用する。
+ex)
+for i in 1..10
+      処理文
+end
