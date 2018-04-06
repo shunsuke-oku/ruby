@@ -62,3 +62,15 @@ array2 = [10,100]
 array1.push(array2)
 puts array1
 結果：[1,2,3,[10,100]]
+
+・flatten・・・pushでは、配列に配列が入っている形になっています。それを解消してくれるのがflattenメソッドです。
+              3以上の配列でも結合させることができる。配列の中に含まれる配列からすべて要素を取り出しその配列の中にきれいに並べてくれる。
+ex)
+array1 = [1,2,3]
+array2 = [10,100]
+array3 = ["a","bb","abc"]
+array1.push(array2).push(array3)
+#arra1 = [1,2,3,[10,100],["a","bb","abc"]]
+array1.flatten!
+puts array1
+結果：[1,2,3,10,100,"a","bb","abc"]
