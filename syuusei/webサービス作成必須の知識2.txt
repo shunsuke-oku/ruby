@@ -1,0 +1,53 @@
+■クラスの中でメソッドを定義する
+  1.クラスの中ではメソッドを定義することができる。
+  2.クラスの中で定義したメソッドを呼び出す。「インスタンス.メソッド名」
+ex)
+class Menu
+     attr_accessor :name
+     attr_accessor :price
+
+1・・・def show
+1・・・puts "私はメニューです"
+1・・・end
+end
+
+menu1 = Menu.new
+2・・・menu1.show
+
+■インスタンスメソッド
+  ・上記のようにクラスの中で定義し、インスタンスに対して呼び出すことを「インスタンスメソッド」と呼ぶ。
+  ・インスタンスメソッドも、引数を受け取ったり戻り値を返すことができます。
+ex)
+class Menu
+ attr_accessor :name
+ attr_accessor :price
+
+ def show(data)←引数
+
+  return "私は#{data}です"←戻り値
+ end
+end
+
+menu1 = Menu.new
+puts menu1.show("メニュー")
+
+結果：私はメニューです
+
+■インスタンスメソッドの中でインスタンス変数を扱う
+  ・これまでのインスタンス変数は、「インスタンス.変数名」で扱っていました。
+    インスタンスメソッドの中では、特別な変数「self」を用いて「self.変数名」とすることで扱うことができる。
+ex)
+class Menu
+ attr_accessor :name
+ attr_accessor :price
+
+ def show_name
+  puts "私は#{self.name}です"
+ end
+end
+
+menu1＝ Menu.new
+menu1.name = "ピザ"
+menu1.show_name←インスタンスメソッドの呼び出し
+
+結果:ピザです

@@ -1,0 +1,71 @@
+■インスタンス生成時に値を代入
+ ・これまで 「クラス名 = Menu.new」としてインスタンスを生成して、nameとpriceにそれぞれ値
+
+  1.「initializeメソッド」
+   ・initializeメソッドは、「クラス名.new」でインスタンスを生成した直後に自動で呼び出されます。
+
+   ex)
+   initializeメソッド
+      Menu.newが実行される
+            ↓
+      空のMenuインスタンス生成
+            ↓ initializeメソッドがあれば
+      生成されたインスタンスにたいしてinitializeメソッドが自動で呼び出される
+
+   ex)
+    class Menu
+      attr_accessor :name
+      attr_accessor :price
+
+      def initialize
+        puts "メニューが生成されました"
+      end
+    end
+
+    menu1 = Menu.new←Menu.newが実行されると自動でinitializeメソッドが呼び出される
+
+    結果：メニューが生成されました
+
+  ・initializeメソッドの中で、インスタンス変数に値を代入できる。
+    インスタンス変数のなかでは、「self.変数名」でインスタンス変数を扱うことができるので、
+    「self.変数名 ＝ 値」でインスタンス変数に値を代入できます。
+
+    ex)
+    class Menu
+      def initialize
+        self.name = "ピザ"←インスタンス生成直後に"ピザ"をインスタンス変数nameに代入
+      end
+    end
+
+    menu1 = Menu.new
+    puts menu1.name
+
+    結果：ピザ
+
+  ・initializaメソッドの引数・・・「クラス.new」に対して引数を渡すことで、initializeメソッド
+                                に値を渡す事ができる。
+
+   ex)
+   class Menu
+      ：
+      def initialize(message)←"こんにちは"が渡ってくる
+
+        puts message
+      end
+      ：
+   end
+   menu1 = Menu.new("こんにちは")
+   結果：こんにちは
+
+   ・initializeメソッドでインスタンス変数に値を代入する
+
+   ex)
+   class Menu
+      ：
+      def initialize(name:,price:)←"ピザ",800
+        self.name = name
+        self.price = price
+      end
+      ：
+   end
+   menu1 = Menu.new(name:"ピザ",price:800)←キーワード引数
